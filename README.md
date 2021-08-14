@@ -12,7 +12,7 @@ How to use:
 1-In config.ini set the number of refreshes you want the bot to do, the number of skystones spent will be 3 times this value  
 2-Delay = 1 is the default speed, if you are using a PC with bad performance try to increase the delay to run it slowly  
 3-Use your emulator in full screen and it must be on your main monitor  
-4-Finish your dispatch mission or start long ones. (So the window doesnt pop up during shop reroll)
+4-Finish your dispatch mission or start long ones. (So the window doesnt pop up during shop reroll)  
 5-Change chat to a empty channel  
 6-Start the program  
 7-Open secret shop  
