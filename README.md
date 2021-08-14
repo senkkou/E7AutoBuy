@@ -22,7 +22,7 @@ Additional notes:
 By default it will only work if your screen resolution is in presets.ini, by default 1280x720, 1920x1080 and 2560x1080  
 if you use any other resolution change to one of the three above or do your own configuration and write in the file.  
   
-Python and packages installed:  
+Python and packages used to compile:  
 -python 3.8.11  
 -pytesseract 0.3.8  
 -pillow 8.3.1  
