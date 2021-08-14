@@ -13,11 +13,7 @@ ocr.pytesseract.tesseract_cmd = config.get('Refresh', 'tesseractPath')
 rolls = config.getint('Refresh', 'number_of_refresh')
 delay = config.getint('Refresh', 'delay')
 
-#allowedResolution = "2560x1080 1920x1080 1280x720"
 screensize = f'{ctypes.windll.user32.GetSystemMetrics(0)}x{ctypes.windll.user32.GetSystemMetrics(1)}'
-#if screensize not in allowedResolution:
-#    ctypes.windll.user32.MessageBoxW(0, f"Resolution {screensize} not supported", "Error", 0)
-#    sys.exit()
 
 presets = configparser.ConfigParser()
 presets.read('presets.ini')
