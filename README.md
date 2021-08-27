@@ -19,7 +19,7 @@ Auto refreshes secret shop and buy all Covenant Bookmarks and Mystic Medals
 8-Confirm program window.  
   
 Additional notes:  
-By default it will only work if your screen resolution is in presets.ini, by default 1280x720, 1920x1080 and 2560x1080  
+It will only work if your screen resolution is in presets.ini, by default 1280x720, 1920x1080 and 2560x1080  
 if you use any other resolution change to one of the three above or do your own configuration and write in the file.  
   
 ### Python and packages used to compile:  
@@ -49,5 +49,5 @@ Open up each image to see better the marked pixel
 </details>  
   
 ## Warning  
-For the first time, before you try it with a high number of rerolls, reroll manually until a covenant or mystic shows up.  
+For the first time, before you try it with a high number of rerolls, refresh it manually until a covenant or mystic shows up.  
 Then set the number of reroll to something like 3 just to test if it is working fine.
