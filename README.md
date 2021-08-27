@@ -46,4 +46,8 @@ Open up each image to see better the marked pixel
    
 ![4](https://user-images.githubusercontent.com/54269537/131054955-8722a72b-cfa0-4246-92e9-0cc37cbd1db9.png)
 
-</details>
+</details>  
+  
+## Warning  
+For the first time, before you try it with a high number of rerolls, reroll manually until a covenant or mystic shows up.  
+Then set the number of reroll to something like 3 just to test if it is working fine.
