@@ -14,9 +14,14 @@ Auto refreshes secret shop and buy all Covenant Bookmarks and Mystic Medals
 5. Set adbPath to your adb.exe file (from platform-tools)  
 6. Make sure your game is in english  
 7. Enable ADB on your emulator  
-<details><summary>Show</summary>  
+<details><summary>Enabling ADB</summary>  
   
+Ldplayer  
 ![adb](https://user-images.githubusercontent.com/54269537/132781083-e40bd44b-e551-4b84-9da4-586aa519a937.png)  
+  
+BlueStacks  
+![adbbs](https://user-images.githubusercontent.com/54269537/132966725-813692ca-37f9-4cd6-8db5-c72796607455.png)  
+  
   
 </details>  
   
