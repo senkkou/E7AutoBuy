@@ -95,5 +95,5 @@ Open up each image to see better the marked pixel
 </details>  
   
 ## Warning  
-For the first time, before you try it with a high number of rerolls, refresh it manually until a covenant or mystic shows up.  
+For the first time, before you try it with a great number of rerolls, refresh it manually until a covenant or mystic shows up.  
 Then set the number of reroll to something like 3 just to test if it is working fine.
