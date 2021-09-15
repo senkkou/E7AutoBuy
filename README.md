@@ -54,7 +54,7 @@ When it finishes, a window will pop up and shows the results and a log file will
 4. Make sure your game is in english  
   
 ### How to use:  
-1. In config.ini set the number of refreshes you want the bot to do, the number of skystones spent will be 3 times this value  
+1. In config.ini set the number of refreshes you want AutoBuy to do, the number of skystones spent will be 3 times this value  
 2. Delay = 1 is the default speed, if you are using a PC with bad performance try to increase the delay to run it slowly  
 3. Use your emulator with maximized window (Like the images bellow) and it must be on your main monitor  
 4. Finish your dispatch mission or start long ones. (So the window doesnt pop up during shop reroll)  
