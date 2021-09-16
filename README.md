@@ -42,6 +42,7 @@ When it finishes, a window will pop up and shows the results and a log file will
 ### Demonstration  
   
   Number of refreshes was set up to 3  
+  I can freely move my mouse and do other activities while AutoBuy is running, auto refreshing the shop and buying any covenant bookmarks and mystic medals that shows up there.  
 
 [![Watch the video](https://user-images.githubusercontent.com/54269537/133536048-b6650982-13b9-409a-8596-89351f7692b8.jpg)](https://user-images.githubusercontent.com/54269537/133535713-08699993-010c-41dd-9c7f-d4d3e101a1a3.mp4)  
   
