@@ -38,7 +38,7 @@ Obs: In config.ini there is a delay section, value is 1 by default, if you are u
   
   
 ### Demonstration  
-  
+  Recorded version 2.0
   Number of refreshes was set up to 3  
   I can freely move my mouse and do other activities while AutoBuy is running, auto refreshing the shop and buying any covenant bookmarks and mystic medals that shows up there.  
 
