@@ -108,9 +108,9 @@ try:
     adb_path = f'"{adb_path}"'
     delay = config.getint('Refresh', 'delay')
 except:
-    crashhandler()
+    crashhandler("\nCheck your config.ini file")
 
-rolls = simpledialog.askinteger(" ", "Number of refreshes")
+rolls = simpledialog.askinteger(" ", "Number of refreshes\nSkystones spent will be 3 times this value")
 if rolls is None:
     sys.exit()
 cBM = 0
@@ -163,7 +163,7 @@ cropbr5 = int(695*ratio)
 swipex = int(1000*ratio)
 swipey1 = int(575*ratio)
 swipey2 = int(250*ratio)
-
+start = datetime.now()
 try:
     for x in range(rolls + 1):
         images = []
@@ -205,12 +205,11 @@ try:
         reroll()
 except:
     crashhandler()
-
+end = datetime.now()
 goldSpent = ((184*cBM) + (280*MM))*1000
 rerollResults = f'Covenant Bookmark = {5*cBM}\nMystic Medals = {50*MM}\nGold Spent = {goldSpent}\n'
-
 log = open("logs.txt", "a")
-log.write(f'{datetime.now()}\nSkystones spent = {3*rolls}\n{rerollResults}\n')
+log.write(f'Started at {start}\nEnded at {end}\nTime elapsed: {end-start}\nSkystones spent = {3*rolls}\n{rerollResults}\n')
 log.close()
 killadb()
 ctypes.windll.user32.MessageBoxW(0, rerollResults, "Results", 0)
