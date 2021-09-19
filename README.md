@@ -2,18 +2,17 @@
 
 Auto refreshes secret shop and buy all Covenant Bookmarks and Mystic Medals  
   
-# v2.0
+# v2.1
 - Now you can use your PC while AutoBuy is running  
 - Your monitor resolution doesn't matter anymore  
+- GUI to select paths and set the number of refreshes  
+- Better crash handling
   
 ## Get Started:  
 1. Install Tesseract OCR https://github.com/UB-Mannheim/tesseract/wiki  
-2. Download platform-tools https://dl.google.com/android/repository/platform-tools-latest-windows.zip  
-3. Open config.ini  
-4. Set tesseractPath to your tesseract.exe file (from Tesseract OCR)  
-5. Set adbPath to your adb.exe file (from platform-tools)  
-6. Make sure your game is in english  
-7. Enable ADB on your emulator  
+2. Download and unzip platform-tools https://dl.google.com/android/repository/platform-tools-latest-windows.zip  
+3. Make sure your game is in english  
+4. Enable ADB on your emulator  
 <details><summary>Enabling ADB</summary>  
   
 Ldplayer  
@@ -27,16 +26,15 @@ BlueStacks
   
    
  ### How to use:  
-1. In config.ini set the number of refreshes you want AutoBuy to do, the number of skystones spent will be 3 times this value.  
-2. Delay = 1 is the default speed, if you are using a PC with bad performance try to increase the delay to run it slowly.   
-4. Finish your dispatch mission or start long ones (So the window doesnt pop up during shop reroll).  
-5. Change chat to a empty channel (To avoid chat pop ups).    
-6. Start the program.  
-7. Open secret shop.  
-8. Confirm program window.  
+1. Finish your dispatch mission or start long ones (So the window doesnt pop up during shop reroll).  
+2. Change chat to a empty channel (To avoid chat pop ups).    
+3. Start the program and follow the instructions to set it up.
+4. Open secret shop screen before press the confirm button to start.
   
 Now you can minimize your emulator and console window and freely use your PC while AutoBuy is running.  
 When it finishes, a window will pop up and shows the results and a log file will be saved in AutoBuy directory.  
+
+Obs: In config.ini there is a delay section, value is 1 by default, if you are using a PC with bad performance try to increase the delay to run it slowly.   
   
   
 ### Demonstration  
