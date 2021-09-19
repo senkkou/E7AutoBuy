@@ -1,7 +1,9 @@
+from tkinter import filedialog, simpledialog
+from tkinter import *
 import pytesseract as ocr
 import subprocess
+import PIL
 from PIL import Image
-import sys
 from io import BytesIO
 import time
 import configparser
@@ -72,61 +74,97 @@ def buy(slot):
 def killadb():
     subprocess.Popen(r'taskkill /IM "adb.exe" /F')
 
+
+def config():
+    ctypes.windll.user32.MessageBoxW(0, "Select tesseract.exe file", "Setting Up", 0)
+    tesseractFile = filedialog.askopenfile().name
+    ctypes.windll.user32.MessageBoxW(0, "Select adb.exe file", "Setting Up", 0)
+    adbFile = filedialog.askopenfile().name
+    configFile = open('config.ini', 'w')
+    configFile.write(f'[Refresh]\ntesseractPath = {tesseractFile}\nadbPath = {adbFile}\ndelay = 1')
+    configFile.close()
+
+
+def crashhandler(handled=""):
+    logging.basicConfig(filename='crash.log')
+    logging.exception(f'\n{datetime.now()}{handled}\n')
+    killadb()
+    ctypes.windll.user32.MessageBoxW(0, "Something went wrong, check crash.log file", "Crash Handler", 0)
+    sys.exit()
+
+
+Tk().withdraw()
+try:
+    open('config.ini', 'x')
+    config()
+except FileExistsError:
+    pass
+
 try:
     config = configparser.ConfigParser()
     config.read('config.ini')
     ocr.pytesseract.tesseract_cmd = config.get('Refresh', 'tesseractPath')
     adb_path = config.get('Refresh', 'adbPath')
     adb_path = f'"{adb_path}"'
-    rolls = config.getint('Refresh', 'number_of_refresh')
     delay = config.getint('Refresh', 'delay')
-    cBM = 0
-    MM = 0
+except:
+    crashhandler()
+
+rolls = simpledialog.askinteger(" ", "Number of refreshes")
+if rolls is None:
+    sys.exit()
+cBM = 0
+MM = 0
+try:
     subprocess.Popen(f"{adb_path} devices")
     time.sleep(5)
     resolution = screen()
-    if (resolution.size[0]/16) != (resolution.size[1]/9):
-        ctypes.windll.user32.MessageBoxW(0, f"Resolution {resolution.size[0]}x{resolution.size[1]} not supported, use 16:9 aspect ratio", "Error", 0)
-        killadb()
-        sys.exit()
-    result = ctypes.windll.user32.MessageBoxW(0, f"Skystones = {3*rolls}\nRefreshes = {rolls}\nReady to start ?", "Setup", 4)
-    if result != 6:
-        killadb()
-        sys.exit()
+except PIL.UnidentifiedImageError:
+    crashhandler("\nProbably ADB isn't enabled on emulator")
 
-    ratio = resolution.size[0]/1280
+if (resolution.size[0]/16) != (resolution.size[1]/9):
+    ctypes.windll.user32.MessageBoxW(0, f"Resolution {resolution.size[0]}x{resolution.size[1]} not supported, use 16:9 aspect ratio", "Error", 0)
+    killadb()
+    sys.exit()
+result = ctypes.windll.user32.MessageBoxW(0, f"Skystones = {3*rolls}\nRefreshes = {rolls}\nReady to start ?", "Setup", 4)
+if result != 6:
+    killadb()
+    sys.exit()
 
-    rbx = int(230*ratio)
-    rby = int(660*ratio)
-    rbcx = int(740*ratio)
-    rbcy = int(440*ratio)
-    slotb = int(1150*ratio)
-    slot0 = int(160*ratio)
-    slot1 = int(300*ratio)
-    slot2 = int(450*ratio)
-    slot3 = int(595*ratio)
-    slot4 = int(530*ratio)
-    slot5 = int(670*ratio)
-    slotcx = int(750*ratio)
-    slotcy = int(510*ratio)
-    cropulx = int(680*ratio)
-    cropul0 = int(90*ratio)
-    cropul1 = int(232*ratio)
-    cropul2 = int(375*ratio)
-    cropul3 = int(525*ratio)
-    cropul4 = int(460*ratio)
-    cropul5 = int(605*ratio)
-    cropbrx = int(1000*ratio)
-    cropbr0 = int(180*ratio)
-    cropbr1 = int(332*ratio)
-    cropbr2 = int(475*ratio)
-    cropbr3 = int(625*ratio)
-    cropbr4 = int(550*ratio)
-    cropbr5 = int(695*ratio)
-    swipex = int(1000*ratio)
-    swipey1 = int(575*ratio)
-    swipey2 = int(250*ratio)
+ratio = resolution.size[0]/1280
 
+rbx = int(230*ratio)
+rby = int(660*ratio)
+rbcx = int(740*ratio)
+rbcy = int(440*ratio)
+slotb = int(1150*ratio)
+slot0 = int(160*ratio)
+slot1 = int(300*ratio)
+slot2 = int(450*ratio)
+slot3 = int(595*ratio)
+slot4 = int(530*ratio)
+slot5 = int(670*ratio)
+slotcx = int(750*ratio)
+slotcy = int(510*ratio)
+cropulx = int(680*ratio)
+cropul0 = int(90*ratio)
+cropul1 = int(232*ratio)
+cropul2 = int(375*ratio)
+cropul3 = int(525*ratio)
+cropul4 = int(460*ratio)
+cropul5 = int(605*ratio)
+cropbrx = int(1000*ratio)
+cropbr0 = int(180*ratio)
+cropbr1 = int(332*ratio)
+cropbr2 = int(475*ratio)
+cropbr3 = int(625*ratio)
+cropbr4 = int(550*ratio)
+cropbr5 = int(695*ratio)
+swipex = int(1000*ratio)
+swipey1 = int(575*ratio)
+swipey2 = int(250*ratio)
+
+try:
     for x in range(rolls + 1):
         images = []
         ss = screen()
@@ -165,17 +203,14 @@ try:
         if x == rolls:
             break
         reroll()
-
-    goldSpent = ((184*cBM) + (280*MM))*1000
-    rerollResults = f'Covenant Bookmark = {5*cBM}\nMystic Medals = {50*MM}\nGold Spent = {goldSpent}\n'
-
-    log = open("logs.txt", "a")
-    log.write(f'{datetime.now()}\nSkystones spent = {3*rolls}\n{rerollResults}\n')
-    log.close()
-    killadb()
-    ctypes.windll.user32.MessageBoxW(0, rerollResults, "Results", 0)
 except:
-    logging.basicConfig(filename='crash.log')
-    logging.exception(f'\n{datetime.now()}\n\n')
-    killadb()
-    ctypes.windll.user32.MessageBoxW(0, "Something went wrong, check crash.log file", "Crash Handler", 0)
+    crashhandler()
+
+goldSpent = ((184*cBM) + (280*MM))*1000
+rerollResults = f'Covenant Bookmark = {5*cBM}\nMystic Medals = {50*MM}\nGold Spent = {goldSpent}\n'
+
+log = open("logs.txt", "a")
+log.write(f'{datetime.now()}\nSkystones spent = {3*rolls}\n{rerollResults}\n')
+log.close()
+killadb()
+ctypes.windll.user32.MessageBoxW(0, rerollResults, "Results", 0)
