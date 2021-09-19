@@ -7,6 +7,7 @@ Auto refreshes secret shop and buy all Covenant Bookmarks and Mystic Medals
 - Your monitor resolution doesn't matter anymore  
 - GUI to select paths and set the number of refreshes  
 - Better crash handling
+- Log improvement
   
 ## Get Started:  
 1. Install Tesseract OCR https://github.com/UB-Mannheim/tesseract/wiki  
