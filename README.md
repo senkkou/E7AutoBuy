@@ -31,7 +31,7 @@ BlueStacks
 3. Start the program and follow the instructions to set it up.  
 - tesserect.exe from Tesseract OCR
 - adb.exe from platform-tools
-5. Open secret shop screen before press the confirm button to start.
+4. Open secret shop screen before press the confirm button to start.
   
 Now you can minimize your emulator and console window and freely use your PC while AutoBuy is running.  
 When it finishes, a window will pop up and shows the results and a log file will be saved in AutoBuy directory.  
