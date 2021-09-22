@@ -29,15 +29,16 @@ BlueStacks
  ### How to use:  
 1. Finish your dispatch mission or start long ones (So the window doesnt pop up during shop reroll).  
 2. Change chat to a empty channel (To avoid chat pop ups).    
-3. Start the program and follow the instructions to set it up.  
+3. When starting for the first time AutoBuy will ask to select 2 .exe files
 - tesserect.exe from Tesseract OCR
 - adb.exe from platform-tools
-4. Open secret shop screen before press the confirm button to start.
+5. Open secret shop screen before press the confirm button to start.
   
 Now you can minimize your emulator and console window and freely use your PC while AutoBuy is running.  
 When it finishes, a window will pop up and shows the results and a log file will be saved in AutoBuy directory.  
-
-Obs: In config.ini there is a delay section, value is 1 by default, if you are using a PC with bad performance try to increase the delay to run it slowly.   
+  
+## Important  
+***In config.ini there is a delay section, value is 1 by default, if you are using a PC with bad performance try to increase the delay to run it slowly.***  
   
   
 ### Demonstration  
