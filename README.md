@@ -1,6 +1,9 @@
 # E7AutoBuy
 
 Auto refreshes secret shop and buy all Covenant Bookmarks and Mystic Medals  
+   
+### 2.1.1  
+- Show on console each interaction
   
 # v2.1
 - Now you can use your PC while AutoBuy is running  
