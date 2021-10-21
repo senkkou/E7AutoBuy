@@ -166,6 +166,7 @@ swipey2 = int(250*ratio)
 start = datetime.now()
 try:
     for x in range(rolls + 1):
+        print(f'{x}/{rolls}')
         images = []
         ss = screen()
 
