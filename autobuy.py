@@ -8,7 +8,7 @@ from io import BytesIO
 import time
 import configparser
 import ctypes
-from datetime import datetime
+import datetime
 import logging
 
 
@@ -80,14 +80,17 @@ def config():
     tesseractFile = filedialog.askopenfile().name
     ctypes.windll.user32.MessageBoxW(0, "Select adb.exe file", "Setting Up", 0)
     adbFile = filedialog.askopenfile().name
+    delayset = simpledialog.askfloat(" ", "Delay value (Default is 1)\nIf your emulator has bad performance set a higher value\nOpen config.ini if want to change it later")
+    if delayset is None:
+        delayset = 1
     configFile = open('config.ini', 'w')
-    configFile.write(f'[Refresh]\ntesseractPath = {tesseractFile}\nadbPath = {adbFile}\ndelay = 1')
+    configFile.write(f'[Refresh]\ntesseractPath = {tesseractFile}\nadbPath = {adbFile}\ndelay = {delayset}')
     configFile.close()
 
 
 def crashhandler(handled=""):
     logging.basicConfig(filename='crash.log')
-    logging.exception(f'\n{datetime.now()}{handled}\n')
+    logging.exception(f'\n{datetime.datetime.now()}{handled}\n')
     killadb()
     ctypes.windll.user32.MessageBoxW(0, "Something went wrong, check crash.log file", "Crash Handler", 0)
     sys.exit()
@@ -106,7 +109,7 @@ try:
     ocr.pytesseract.tesseract_cmd = config.get('Refresh', 'tesseractPath')
     adb_path = config.get('Refresh', 'adbPath')
     adb_path = f'"{adb_path}"'
-    delay = config.getint('Refresh', 'delay')
+    delay = config.getfloat('Refresh', 'delay')
 except:
     crashhandler("\nCheck your config.ini file")
 
@@ -117,6 +120,7 @@ cBM = 0
 MM = 0
 try:
     subprocess.Popen(f"{adb_path} devices")
+    print("TO STOP ANYTIME PRESS CTRL+C IN THE CONSOLE")
     time.sleep(5)
     resolution = screen()
 except PIL.UnidentifiedImageError:
@@ -126,7 +130,8 @@ if (resolution.size[0]/16) != (resolution.size[1]/9):
     ctypes.windll.user32.MessageBoxW(0, f"Resolution {resolution.size[0]}x{resolution.size[1]} not supported, use 16:9 aspect ratio", "Error", 0)
     killadb()
     sys.exit()
-result = ctypes.windll.user32.MessageBoxW(0, f"Skystones = {3*rolls}\nRefreshes = {rolls}\nReady to start ?", "Setup", 4)
+ET = str(datetime.timedelta(seconds=(rolls*11.5*delay)))[:8]
+result = ctypes.windll.user32.MessageBoxW(0, f"Skystones = {3*rolls}\nRefreshes = {rolls}\nDelay = {delay}x\nEstimated time = {ET}\nTO STOP ANYTIME PRESS CTRL+C IN THE CONSOLE\nReady to start ?", "Setup", 4)
 if result != 6:
     killadb()
     sys.exit()
@@ -163,7 +168,8 @@ cropbr5 = int(695*ratio)
 swipex = int(1000*ratio)
 swipey1 = int(575*ratio)
 swipey2 = int(250*ratio)
-start = datetime.now()
+start = datetime.datetime.now()
+
 try:
     for x in range(rolls + 1):
         print(f'{x}/{rolls}')
@@ -204,13 +210,15 @@ try:
         if x == rolls:
             break
         reroll()
+except KeyboardInterrupt:
+    pass
 except:
     crashhandler()
-end = datetime.now()
+end = datetime.datetime.now()
 goldSpent = ((184*cBM) + (280*MM))*1000
 rerollResults = f'Covenant Bookmark = {5*cBM}\nMystic Medals = {50*MM}\nGold Spent = {goldSpent}\n'
 log = open("logs.txt", "a")
-log.write(f'Started at {start}\nEnded at {end}\nTime elapsed: {end-start}\nSkystones spent = {3*rolls}\n{rerollResults}\n')
+log.write(f'Started at {start}\nEnded at {end}\nTime elapsed: {end-start}\nRefreshes = {x}\nSkystones spent = {3*x}\n{rerollResults}\n')
 log.close()
 killadb()
 ctypes.windll.user32.MessageBoxW(0, rerollResults, "Results", 0)
