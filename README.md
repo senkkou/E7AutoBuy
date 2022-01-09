@@ -2,6 +2,12 @@
 
 Auto refreshes secret shop and buy all Covenant Bookmarks and Mystic Medals  
    
+# 2.5  
+- Added delay set up when creating config.ini
+- Delay works with float values (ex: 1.7)
+- Added Estimated time info
+- Support to stop the script anytime, currently logs will be saved with no problem (Press Ctrl C in the console)
+     
 ### 2.1.1  
 - Show on console each interaction
   
