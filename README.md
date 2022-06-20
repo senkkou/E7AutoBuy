@@ -19,15 +19,17 @@ Auto refreshes secret shop and buy all Covenant Bookmarks and Mystic Medals
 - Log improvement
   
 ## Get Started:  
-1. Install Tesseract OCR https://github.com/UB-Mannheim/tesseract/wiki  
-2. Download and unzip platform-tools https://dl.google.com/android/repository/platform-tools-latest-windows.zip  
-3. Make sure your game is in english  
-4. Enable ADB on your emulator  
+1. Download AutoBuy latest version [Download](https://github.com/senkkou/E7AutoBuy/releases/download/v2.5/AutoBuy.v2.5-w10x64.zip)  
+2. Install Tesseract OCR [Download](https://github.com/UB-Mannheim/tesseract/wiki)  
+3. Download and unzip platform-tools [Download](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)  
+4. Make sure your game is in english  
+5. Enable ADB on your emulator  
 <details><summary>Enabling ADB</summary>  
   
 Ldplayer  
 ![adb](https://user-images.githubusercontent.com/54269537/132781083-e40bd44b-e551-4b84-9da4-586aa519a937.png)  
   
+Note: Some version of BlueStacks has ADB not working properly  
 BlueStacks  
 ![adbbs](https://user-images.githubusercontent.com/54269537/132966725-813692ca-37f9-4cd6-8db5-c72796607455.png)  
   
