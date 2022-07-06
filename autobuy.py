@@ -80,9 +80,9 @@ def config():
     tesseractFile = filedialog.askopenfile().name
     ctypes.windll.user32.MessageBoxW(0, "Select adb.exe file", "Setting Up", 0)
     adbFile = filedialog.askopenfile().name
-    delayset = simpledialog.askfloat(" ", "Delay value (Default is 1)\nIf your emulator has bad performance set a higher value\nOpen config.ini if want to change it later")
+    delayset = simpledialog.askfloat(" ", "Delay value (Default is 1.5)\nIf your emulator has bad performance set a higher value\nOpen config.ini if want to change it later")
     if delayset is None:
-        delayset = 1
+        delayset = 1.5
     configFile = open('config.ini', 'w')
     configFile.write(f'[Refresh]\ntesseractPath = {tesseractFile}\nadbPath = {adbFile}\ndelay = {delayset}')
     configFile.close()
@@ -124,7 +124,7 @@ try:
     time.sleep(5)
     resolution = screen()
 except PIL.UnidentifiedImageError:
-    crashhandler("\nProbably ADB isn't enabled on emulator")
+    crashhandler("\nADB isn't working")
 
 if (resolution.size[0]/16) != (resolution.size[1]/9):
     ctypes.windll.user32.MessageBoxW(0, f"Resolution {resolution.size[0]}x{resolution.size[1]} not supported, use 16:9 aspect ratio", "Error", 0)
