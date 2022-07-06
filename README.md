@@ -19,7 +19,7 @@ Auto refreshes secret shop and buy all Covenant Bookmarks and Mystic Medals
 - Log improvement
   
 ## Get Started:  
-1. Download AutoBuy latest version [Download](https://github.com/senkkou/E7AutoBuy/releases/download/v2.5/AutoBuy.exe)  
+1. Download AutoBuy latest version [Download](https://github.com/senkkou/E7AutoBuy/releases/download/2.5/AutoBuy.exe)  
 2. Install Tesseract OCR [Download](https://github.com/UB-Mannheim/tesseract/wiki)  
 3. Download and unzip platform-tools [Download](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)  
 4. Make sure your game is in english  
