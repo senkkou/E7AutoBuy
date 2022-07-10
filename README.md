@@ -36,7 +36,8 @@ BlueStacks
   
 </details>  
   
-   
+[Video tutorial](https://github.com/senkkou/E7AutoBuy#tutorial-and-demonstration)  
+  
  ### How to use:  
 1. Finish your dispatch mission or start long ones (So the window doesnt pop up during shop reroll).  
 2. When starting for the first time AutoBuy will ask to select 2 .exe files
